@@ -1,0 +1,6 @@
+dependencies:
+- name: book-keeper-pg-db
+  repository: file://../../common-charts/book-keeper-pg-db
+  version: 0.1.0
+digest: sha256:32474c6ee2bce480042f34652ed48ab61f391ef752ae1ca0fc0a2bda51e0d0db
+generated: "2024-01-21T13:35:49.168036+02:00"

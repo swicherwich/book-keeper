@@ -1,0 +1,19 @@
+[
+  {
+    "name": "lang",
+    "values": [
+      "ru"
+    ],
+    "severity": "CRITICAL",
+    "alarmType": "BOOK_SPECIFIC",
+    "description": "Books in russian language are not allowed.",
+    "resolution": "Get rid of this piece of shit."
+  },
+  {
+    "name": "availability",
+    "severity": "WARNING",
+    "alarmType": "BOOK_SPECIFIC",
+    "description": "Books in not available.",
+    "resolution": "Please check if it was loaned."
+  }
+]

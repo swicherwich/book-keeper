@@ -1,0 +1,21 @@
+management-service:
+  service:
+    type: ClusterIP
+    port: 8080
+  database:
+    name: postgres
+    host: database-document-pg
+
+info-service:
+  service:
+    type: ClusterIP
+    port: 8081
+  database:
+    name: postgres
+    host: database-document-pg
+
+database-document-pg:
+  pv:
+    mountpath: /mnt/base
+  database:
+    name: postgres

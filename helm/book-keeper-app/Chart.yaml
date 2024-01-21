@@ -1,0 +1,16 @@
+apiVersion: v2
+name: book-keeper-app
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+  - name: info-service
+    version: "0.1.0"
+    repository: "file://../../service-info/charts"
+  - name: management-service
+    version: "0.1.0"
+    repository: "file://../../service-management/charts"
+  - name: database-document-pg
+    version: "0.1.0"
+    repository: "file://../database-document-pg"
