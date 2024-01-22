@@ -24,7 +24,7 @@ spec:
                 name: {{ .Release.Name }}-info-service
                 port:
                   number: 8081
-          - path: /api/v1/info
+          - path: /api/v1/alarms
             pathType: Prefix
             backend:
               service:

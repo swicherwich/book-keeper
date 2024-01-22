@@ -1,0 +1,13 @@
+database-document-pg:
+  pv:
+    mountpath: /mnt/supervision
+  service:
+    targetPort: 5432
+  database:
+    name: postgres
+
+alarms-service:
+  database:
+    port: 5432
+    host: database-document-pg
+    name: postgres

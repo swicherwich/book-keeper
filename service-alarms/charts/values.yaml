@@ -2,14 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-database-document-pg:
-  pv:
-    mountpath: /mnt/supervision
-  service:
-    targetPort: 5432
-  database:
-    name: postgres
-
 database:
   port: 5432
   host: database-document-pg
@@ -26,9 +18,6 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
-db:
-  host: book-keeper-database-chart
 
 serviceAccount:
   # Specifies whether a service account should be created

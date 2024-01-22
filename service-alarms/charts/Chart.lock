@@ -1,6 +1,0 @@
-dependencies:
-- name: database-document-pg
-  repository: file://../../helm/database-document-pg
-  version: 0.1.0
-digest: sha256:b31ad1ab63be1987fece8875c732d58b975fd30b98b200feb7cbc464dcc0bedd
-generated: "2024-01-21T17:12:46.22843+02:00"
