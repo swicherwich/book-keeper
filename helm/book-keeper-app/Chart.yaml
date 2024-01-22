@@ -14,3 +14,6 @@ dependencies:
   - name: database-document-pg
     version: "0.1.0"
     repository: "file://../database-document-pg"
+  - name: ingress
+    version: "0.1.0"
+    repository: "file://../ingress"
