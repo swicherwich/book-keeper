@@ -1,9 +1,14 @@
 management-service:
   database:
-    name: postgres
+    name: books
     host: database-document-pg
 
 info-service:
   database:
-    name: postgres
+    name: books
+    host: database-document-pg
+
+alarms-service:
+  database:
+    name: books
     host: database-document-pg

@@ -6,7 +6,7 @@ database:
   name: postgres
 
 pv:
-  mountpath: /mnt/base
+  mountpath: /mnt/postgres
 
 replicaCount: 1
 
@@ -18,7 +18,7 @@ image:
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: database-document-pg
 
 serviceAccount:
   # Specifies whether a service account should be created

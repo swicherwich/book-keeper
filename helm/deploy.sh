@@ -17,12 +17,9 @@ shift $((OPTIND-1))
 if [ "$INSTALL" = true ]; then
   kubectl create ns "$NAMESPACE"
   helm dependency update ./bk-base
-  helm dependency update ./bk-supervision
   helm install bk-base ./bk-base -n "$NAMESPACE"
-  helm install bk-supervision ./bk-supervision -n "$NAMESPACE"
 elif [ "$DELETE" = true ]; then
   helm uninstall bk-base -n "$NAMESPACE"
-  helm uninstall bk-supervision -n "$NAMESPACE"
 else
   echo "Specify either -i for installation or -d for deletion."
   exit 1

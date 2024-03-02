@@ -11,9 +11,12 @@ dependencies:
   - name: management-service
     version: "0.1.0"
     repository: "file://../../service-management/charts"
+  - name: alarms-service
+    version: "0.1.0"
+    repository: "file://../../service-alarms/charts"
   - name: database-document-pg
     version: "0.1.0"
-    repository: "file://../deps/database-document-pg"
+    repository: "file://../database-document-pg"
   - name: ingress
     version: "0.1.0"
-    repository: "file://../deps/ingress"
+    repository: "file://../ingress"

@@ -33,14 +33,12 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           env:
-            - name: DB_PORT
-              value: "{{ .Values.database.port }}"
             - name: DB_NAME
               value: {{ .Values.database.name }}
             - name: DB_HOST
-              value: {{ .Release.Name }}-{{ .Values.database.host }}
+              value: {{ .Values.database.host }}
             - name: INFO_SERVICE_HOST
-              value: bk-base-info-service
+              value: "{{ .Release.Name }}-info-service"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
