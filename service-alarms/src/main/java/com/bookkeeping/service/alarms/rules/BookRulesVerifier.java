@@ -26,6 +26,9 @@ public class BookRulesVerifier implements RulesVerifier<Book> {
         for (AlarmRule rule : rules) {
             switch (rule.getName()) {
                 case "lang": {
+                    if (book.getLang() == null) {
+                        break;
+                    }
                     boolean violates;
                     for (Object obj : rule.getValues()) {
                         if (obj instanceof String str) {

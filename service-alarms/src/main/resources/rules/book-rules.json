@@ -12,7 +12,7 @@
   {
     "name": "availability",
     "severity": "WARNING",
-    "alarmType": "BOOK_SPECIFIC",
+    "alarmType": "BOOK_LOAN",
     "description": "Books in not available.",
     "resolution": "Please check if it was loaned."
   }
