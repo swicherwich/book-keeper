@@ -27,12 +27,42 @@ spec:
       serviceAccountName: {{ include "book-keeper-mgmt-service.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init-database
+          image: postgres:latest
+          env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: "{{ .Values.database.host }}-creds"
+                key: POSTGRES_USER
+          - name: PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: "{{ .Values.database.host }}-creds"
+                key: POSTGRES_PASSWORD
+          - name: DB_HOST
+            value: {{ .Values.database.host }}
+          - name: DB_NAME
+            value: {{ .Values.database.name }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: [ "sh", "-c", "psql -h $DB_HOST -U $POSTGRES_USER postgres -tc \"SELECT 1 FROM pg_database WHERE datname = '$DB_NAME'\" | grep -q 1 || psql -h $DB_HOST -U $POSTGRES_USER postgres -c \"CREATE DATABASE $DB_NAME;\"" ]
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.database.host }}-creds"
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "{{ .Values.database.host }}-creds"
+                  key: POSTGRES_PASSWORD
             - name: DB_HOST
               value: {{ .Values.database.host }}
             - name: DB_PORT

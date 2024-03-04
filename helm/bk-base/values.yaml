@@ -10,5 +10,5 @@ info-service:
 
 alarms-service:
   database:
-    name: books
+    name: alarms
     host: database-document-pg
